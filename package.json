@@ -1,0 +1,54 @@
+{
+  "name": "better-randstr",
+  "version": "1.0.0",
+  "description": "Fully-customizable random string generator",
+  "readme": "readme.md",
+  "homepage": "https://github.com/thiagodp/better-randstr",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/thiagodp/better-randstr.git"
+  },
+  "bugs": {
+    "url": "https://github.com/thiagodp/better-randstr/issues"
+  },
+  "author": {
+    "name": "Thiago Delgado Pinto",
+    "email": "thiago-dp@bol.com.br"
+  },
+  "license": "MIT",
+  "keywords": [
+    "better-randstr",
+    "better",
+    "random",
+    "string",
+    "rand",
+    "str",
+    "randstr"
+  ],
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/jest": "^23.1.4",
+    "jest": "^23.3.0",
+    "ts-jest": "^23.0.0",
+    "typescript": "^2.9.2"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "jest"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  }
+}
