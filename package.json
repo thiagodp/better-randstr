@@ -23,7 +23,12 @@
     "string",
     "rand",
     "str",
-    "randstr"
+    "randstr",
+    "length",
+    "unicode",
+    "utf",
+    "custom",
+    "customizable"
   ],
   "main": "index.js",
   "dependencies": {},
