@@ -49,6 +49,39 @@ describe( '#randstr', () => {
         }
     } );
 
+    it( 'respects length with a broader replacement', () => {
+
+        function escapeChar( char: string ): string {
+            switch ( char ) {
+                // special
+                case '\0'  : return '\\0';
+                case '\x08': return '\\b';
+                case '\x09': return '\\t';
+                case '\x1a': return '\\z';
+                case '\n'  : return '\\n';
+                case '\r'  : return '\\r';
+                // symbols
+                case '"' : ;
+                case "'" : ;
+                // database-related
+                case '%' : ;
+                case '`' : ;
+                // other
+                case '<' : ;
+                case '>' : ;
+                case '\\': return '\\' + char;
+            }
+            return char;
+        }
+
+        const min = 100, max = 300;
+        for ( let i = 0, value; i < MAX_TESTS; ++i ) {
+            value = randstr( { length: [ min, max ], replacer: escapeChar } );
+            expect( value.length ).toBeGreaterThanOrEqual( min );
+            expect( value.length ).toBeLessThanOrEqual( max );
+        }
+    } );
+
     it( 'respects length with acceptable function', () => {
 
         const acceptableIf = function acceptableIf( chr: string ): boolean {
