@@ -1,11 +1,14 @@
 # better-randstr
 
-> 🌞 Fully-customizable random string generator. Useful for testing applications, etc.
-
 [![Build Status](https://travis-ci.com/thiagodp/better-randstr.svg?branch=master)](https://travis-ci.com/thiagodp/better-randstr)
 [![npm version](https://badge.fury.io/js/better-randstr.svg)](https://badge.fury.io/js/better-randstr)
 
-Use it with your preferred pseudo-random number generator (PRNG). Unit-tested. No external dependencies. JavaScript or TypeScript.
+> 🌞 Fully-customizable random string generator. Useful for testing applications, etc.
+
+- Use it with your preferred pseudo-random number generator (PRNG).
+- Unit-tested.
+- No external dependencies.
+- Works with JavaScript and TypeScript.
 
 ## Install
 
@@ -152,6 +155,10 @@ where `Options` is :
     includeControlChars?: boolean;
 }
 ```
+
+## See also
+
+[spec-pattern](https://github.com/thiagodp/spec-pattern) Build complex validation rules or filters easily.
 
 ## License
 

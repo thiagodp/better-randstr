@@ -33,27 +33,25 @@
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {
-    "@types/jest": "^23.1.4",
-    "jest": "^23.3.0",
-    "ts-jest": "^23.0.0",
-    "typescript": "^2.9.2"
+    "@types/jest": "^25.2.1",
+    "jest": "^25.3.0",
+    "ts-jest": "^25.3.1",
+    "typescript": "^3.8.3"
   },
   "scripts": {
     "build": "tsc",
-    "test": "jest"
+    "test": "jest",
+    "all": "tsc && jest",
+    "preversion": "tsc && jest"
   },
   "jest": {
     "transform": {
       "^.+\\.tsx?$": "ts-jest"
     },
-    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(js|ts)$",
     "moduleFileExtensions": [
       "ts",
-      "tsx",
-      "js",
-      "jsx",
-      "json",
-      "node"
+      "js"
     ]
   }
 }

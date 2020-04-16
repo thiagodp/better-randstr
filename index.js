@@ -130,6 +130,7 @@ function _validateOptions(options) {
  * @returns a string
  */
 function randstr(options) {
+    var _a;
     var opt = _validateOptions(options);
     var from, to;
     if (Array.isArray(opt.length)) {
@@ -183,7 +184,6 @@ function randstr(options) {
         len = str.length;
     }
     return str;
-    var _a;
 }
 exports.randstr = randstr;
 //
