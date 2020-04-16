@@ -158,7 +158,12 @@ where `Options` is :
 
 ## See also
 
-[spec-pattern](https://github.com/thiagodp/spec-pattern) Build complex validation rules or filters easily.
+- [one-wise](https://github.com/thiagodp/one-wise) - One-wise combinatorial testing generator
+
+- [seedrandom](https://github.com/davidbau/seedrandom) - Predictive PRNG
+
+- [spec-pattern](https://github.com/thiagodp/spec-pattern) - Build complex validation rules or filters easily.
+
 
 ## License
 
