@@ -1,7 +1,7 @@
 
 type RandomProducer = () => number;
-type CharReplacer = ( string ) => string;
-type AcceptableChar = ( string ) => boolean;
+type CharReplacer = ( input: string ) => string;
+type AcceptableChar = ( input: string ) => boolean;
 
 const NON_PRINTABLE_ASCI_START = 0;
 const NON_PRINTABLE_ASCI_END = 31;
@@ -210,7 +210,7 @@ export function randstr( options?: Options ): string {
     if ( Array.isArray( opt.length ) ) {
         [ from, to ] = opt.length;
     } else {
-        from = to = opt.length;
+        from = to = opt.length || 0;
     }
 
     let str = '';
@@ -219,20 +219,21 @@ export function randstr( options?: Options ): string {
     }
 
     const charsIsString = 'string' === typeof opt.chars;
-    const charsLastIndex = charsIsString ? opt.chars.length - 1 : 0;
+    const charsLastIndex = charsIsString ? opt.chars!.length - 1 : 0;
     const includeControlChars = true === opt.includeControlChars;
     const hasAcceptableFunc = 'function' === typeof opt.acceptable;
     const hasReplacer = 'function' === typeof opt.replacer;
-    const max = _randomIntBetween( opt.random, from, to );
+    const max = _randomIntBetween( opt.random!, from, to );
     // console.log( 'max', max, 'from', from, 'to', to );
 
     for ( let i = 0, len = 0, charCode, chr; i < max && len < max; ++i ) {
 
         if ( charsIsString ) {
-            const index = _randomIntBetween( opt.random, 0, charsLastIndex );
+            const index = _randomIntBetween( opt.random!, 0, charsLastIndex );
             charCode = ( opt.chars as string ).charCodeAt( index );
         } else {
-            charCode = _randomIntBetween( opt.random, opt.chars[ 0 ] as number, opt.chars[ 1 ] as number );
+            const [ first, second ] = opt.chars as number[];
+            charCode = _randomIntBetween( opt.random!, first, second );
         }
 
         // Non printable?
@@ -245,13 +246,13 @@ export function randstr( options?: Options ): string {
         chr = String.fromCharCode( charCode );
         // console.log( 'charCode', charCode, 'char', chr );
 
-        if ( hasAcceptableFunc && ! opt.acceptable.call( null, chr ) ) {
+        if ( hasAcceptableFunc && ! opt.acceptable!.call( null, chr ) ) {
             --i; // back to try again
             continue;
         }
 
         if ( hasReplacer ) {
-            chr = opt.replacer.call( null, chr );
+            chr = opt.replacer!.call( null, chr );
             // console.log( 'char after', chr );
             // Their combined length pass the limit?
             if ( ( len + chr.length ) > max ) {

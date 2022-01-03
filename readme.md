@@ -5,22 +5,53 @@
 
 > 🌞 Fully-customizable random string generator. Useful for testing applications, etc.
 
-- Use it with your preferred pseudo-random number generator (PRNG).
-- Unit-tested.
-- No external dependencies.
-- Works with JavaScript and TypeScript.
+- Works with browsers, [NodeJS](https://nodejs.org/) and [DenoJS](https://deno.land/) (JavaScript 6+ and TypeScript)
+- No external dependencies
+- Unit-tested
+- Semantic Versioning
+- It can be used with your preferred pseudo-random generator (PRNG).
 
 ## Install
 
 ```bash
-npm install --save better-randstr
+npm i better-randstr
 ```
 
-## Examples
+## Declaration
 
-```js
-var randstr  = require( 'better-randstr' ).randstr;
+### Browser
 
+Global:
+```html
+<script crossorigin src="https://unpkg.com/better-randstr" >
+<script>console.log( randstr() );</script>
+```
+
+ESM:
+```html
+<script type="module" >
+import { randstr } from 'https://unpkg.com/better-randstr/index.esm.js';
+console.log( randstr() );
+</script>
+```
+
+### NodeJS
+
+```javascript
+const { randstr } = require('better-randstr');
+console.log( randstr() );
+```
+
+### Deno
+
+```typescript
+import { randstr } from 'https://unpkg.com/better-randstr/index.esm.js';
+console.log( randstr() );
+```
+
+## Usage Examples
+
+```javascript
 // Default:
 // - Up to 100 characters
 // - No control characters
@@ -29,7 +60,7 @@ randstr();
 // => ;Þë?Ç¡m{îU4I0_%L*qV
 
 // Using a customized function as random function, instead of Math.random()
-var myRandomFunc = /* function that returns a number between 0 and 1 */
+const myRandomFunc = /* a function that returns a number between 0 and 1 */ ;
 randstr( { random: myRandomFunc } );
 // => cy¦¼Óé6Lcy
 
@@ -62,12 +93,12 @@ randstr( { length: 10, chars: [ 'A'.charCodeAt( 0 ), 'Z'.charCodeAt( 0 ) ] } );
 // => SPQJNORXXR
 
 // Exactly 10 characters, only numbers
-var NUMBERS = require( 'better-randstr' ).NUMBERS;
+const NUMBERS = require( 'better-randstr' ).NUMBERS;
 randstr( { length: 10, chars: NUMBERS } ) // same as passing '0123456789'
 // => 7450625283
 
 // Exactly 10 characters, alfanumeric
-var ALPHA_NUMERIC = require( 'better-randstr' ).ALPHA_NUMERIC;
+const ALPHA_NUMERIC = require( 'better-randstr' ).ALPHA_NUMERIC;
 randstr( { length: 10, chars: ALPHA_NUMERIC } );
 // => s1wMa7QVmg
 
@@ -96,7 +127,7 @@ randstr( { chars: [ 32, 1000 ] } );
 // => r΅4ƹǭ̻ɍĿΠsɊQȍάĠĲȤċƳȭɧĄƹĜʋ͏Ʒȥĭ˟͢"Ȓǭ̼Ζ˂̀ƖǛ̚3&΃ƏϧȷɥŃ
 ```
 
-See [example.js](example.js)
+See [example.js](examples/example.js)
 
 ## API
 

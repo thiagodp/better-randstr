@@ -1,4 +1,4 @@
-import { randstr } from '../index';
+import { randstr } from '../source/index';
 
 
 let numberGen = ( () => {
