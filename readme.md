@@ -1,7 +1,8 @@
 # better-randstr
 
-[![Build Status](https://travis-ci.com/thiagodp/better-randstr.svg?branch=master)](https://travis-ci.com/thiagodp/better-randstr)
-[![npm version](https://badge.fury.io/js/better-randstr.svg)](https://badge.fury.io/js/better-randstr)
+[![npm (tag)](https://img.shields.io/npm/v/better-randstr?color=green&label=NPM&style=for-the-badge)](https://github.com/thiagodp/better-randstr/releases)
+[![Build Status](https://img.shields.io/github/workflow/status/thiagodp/better-randstr/test?style=for-the-badge&color=green)](https://github.com/thiagodp/better-randstr/actions)
+[![License](https://img.shields.io/npm/l/better-randstr.svg?style=for-the-badge&color=green)](https://github.com/thiagodp/better-randstr/blob/master/LICENSE.txt)
 
 > 🌞 Fully-customizable random string generator. Useful for testing applications, etc.
 
@@ -93,12 +94,12 @@ randstr( { length: 10, chars: [ 'A'.charCodeAt( 0 ), 'Z'.charCodeAt( 0 ) ] } );
 // => SPQJNORXXR
 
 // Exactly 10 characters, only numbers
-const NUMBERS = require( 'better-randstr' ).NUMBERS;
+const { NUMBERS } = require( 'better-randstr' );
 randstr( { length: 10, chars: NUMBERS } ) // same as passing '0123456789'
 // => 7450625283
 
 // Exactly 10 characters, alfanumeric
-const ALPHA_NUMERIC = require( 'better-randstr' ).ALPHA_NUMERIC;
+const { ALPHA_NUMERIC } = require( 'better-randstr' );
 randstr( { length: 10, chars: ALPHA_NUMERIC } );
 // => s1wMa7QVmg
 
